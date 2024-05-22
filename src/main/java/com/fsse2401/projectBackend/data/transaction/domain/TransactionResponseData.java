@@ -15,6 +15,7 @@ public class TransactionResponseData {
     private LocalDateTime datetime;
     private String status;
     private BigDecimal total;
+    private String priceId;
     private List<TransactionProductResponseData> items = new ArrayList<>();
 
     public TransactionResponseData(TransactionEntity entity, List<TransactionProductEntity> transactionProductEntityList) {
@@ -23,6 +24,7 @@ public class TransactionResponseData {
         this.datetime = entity.getDatetime();
         this.status = entity.getStatus();
         this.total = entity.getTotal();
+//        this.priceId = entity.
         setItems(transactionProductEntityList);
     }
 

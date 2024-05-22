@@ -1,5 +1,6 @@
 package com.fsse2401.projectBackend.api;
 
+import com.fsse2401.projectBackend.config.EnvConfig;
 import com.fsse2401.projectBackend.data.product.domain.response.ProductResponseData;
 import com.fsse2401.projectBackend.data.product.dto.response.GetAllProductResponseDto;
 import com.fsse2401.projectBackend.data.product.dto.response.ProductResponseDto;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin({EnvConfig.DEV_BASE_URL, EnvConfig.PROD_BASE_URL, EnvConfig.PROD_S3_BASE_URL,"http://192.168.19.63:8081"})
 
 public class ProductApi {
     final ProductService productService;

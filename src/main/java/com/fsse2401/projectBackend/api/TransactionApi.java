@@ -1,5 +1,6 @@
 package com.fsse2401.projectBackend.api;
 
+import com.fsse2401.projectBackend.config.EnvConfig;
 import com.fsse2401.projectBackend.data.transaction.dto.TransactionResponseDto;
 import com.fsse2401.projectBackend.data.transaction.dto.TransactionSuccessResponseDto;
 import com.fsse2401.projectBackend.data.transactionProduct.domain.TransactionProductResponseData;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/transaction")
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin({EnvConfig.DEV_BASE_URL, EnvConfig.PROD_BASE_URL, EnvConfig.PROD_S3_BASE_URL})
 public class TransactionApi {
     final TransactionService transactionService;
 
@@ -23,7 +24,7 @@ public class TransactionApi {
         this.transactionService = transactionService;
     }
 
-    @PutMapping("/prepare")
+    @PostMapping("/prepare")
     public TransactionResponseDto createNewTransaction(JwtAuthenticationToken jwtToken){
        return new TransactionResponseDto(transactionService.createNewTransaction(JwtUtil.getFirebaseUserData(jwtToken)));
     }

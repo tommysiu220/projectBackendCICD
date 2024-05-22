@@ -1,7 +1,6 @@
 package com.fsse2401.projectBackend.service.impl;
 
 import com.fsse2401.projectBackend.data.cartItem.entity.CartItemEntity;
-import com.fsse2401.projectBackend.data.product.entity.ProductEntity;
 import com.fsse2401.projectBackend.data.transaction.domain.TransactionResponseData;
 import com.fsse2401.projectBackend.data.transaction.entity.TransactionEntity;
 import com.fsse2401.projectBackend.data.transactionProduct.entity.TransactionProductEntity;
@@ -12,9 +11,6 @@ import com.fsse2401.projectBackend.exception.transaction.CartItemExceedException
 import com.fsse2401.projectBackend.exception.transaction.EmptyCartException;
 import com.fsse2401.projectBackend.exception.transaction.InvalidTransactionStatusException;
 import com.fsse2401.projectBackend.exception.transaction.TransactionNotFoundException;
-import com.fsse2401.projectBackend.repository.CartItemRepository;
-import com.fsse2401.projectBackend.repository.ProductRepository;
-import com.fsse2401.projectBackend.repository.TransactionProductRepository;
 import com.fsse2401.projectBackend.repository.TransactionRepository;
 import com.fsse2401.projectBackend.service.*;
 import org.slf4j.Logger;

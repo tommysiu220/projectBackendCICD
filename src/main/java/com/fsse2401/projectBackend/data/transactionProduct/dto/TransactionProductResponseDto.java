@@ -23,7 +23,8 @@ public class TransactionProductResponseDto {
                                               data.getPrice(),
                                               data.getImageUrl(),
                                               data.getDescription(),
-                                              data.getStock());
+                                              data.getStock(),
+                                              data.getStripePriceId());
         this.subTotal = data.getSubTotal();
         this.quantity = data.getQuantity();
     }

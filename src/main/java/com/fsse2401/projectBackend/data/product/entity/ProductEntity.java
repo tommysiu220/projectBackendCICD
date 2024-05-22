@@ -19,6 +19,15 @@ public class ProductEntity {
     private String description;
     @Column(nullable = false)
     private Integer stock;
+    private String stripePriceId;
+
+    public String getStripePriceId() {
+        return stripePriceId;
+    }
+
+    public void setStripePriceId(String stripePriceId) {
+        this.stripePriceId = stripePriceId;
+    }
 
     public ProductEntity() {
     }

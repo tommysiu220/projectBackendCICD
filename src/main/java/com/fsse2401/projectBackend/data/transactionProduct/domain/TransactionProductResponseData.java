@@ -17,6 +17,15 @@ public class TransactionProductResponseData {
     private Integer stock;
     private Integer quantity;
     private BigDecimal subTotal;
+    private String stripePriceId;
+
+    public String getStripePriceId() {
+        return stripePriceId;
+    }
+
+    public void setStripePriceId(String stripePriceId) {
+        this.stripePriceId = stripePriceId;
+    }
 
     public TransactionProductResponseData(TransactionProductEntity entity){
         this.tpid = entity.getTpid();
@@ -28,6 +37,7 @@ public class TransactionProductResponseData {
         this.imageUrl = entity.getImageUrl();
         this.stock = entity.getStock();
         this.quantity = entity.getQuantity();
+        this.stripePriceId = entity.getStripePriceId();
         this.subTotal = price.multiply(BigDecimal.valueOf(quantity));
     }
 

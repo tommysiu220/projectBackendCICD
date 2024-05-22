@@ -14,6 +14,8 @@ public class CartItemResponseDto {
     @JsonProperty("cart_quantity")
     private Integer quantity;
     private Integer stock;
+    @JsonProperty("stripe_price_id")
+    private String stripePriceId;
 
     public CartItemResponseDto(CartItemResponseData data) {
         this.pid = data.getProduct().getPid();
@@ -22,6 +24,15 @@ public class CartItemResponseDto {
         this.price = data.getProduct().getPrice();
         this.quantity = data.getQuantity();
         this.stock = data.getProduct().getStock();
+        this.stripePriceId = data.getProduct().getStripePriceId();
+    }
+
+    public String getStripePriceId() {
+        return stripePriceId;
+    }
+
+    public void setStripePriceId(String stripePriceId) {
+        this.stripePriceId = stripePriceId;
     }
 
     public Integer getPid() {

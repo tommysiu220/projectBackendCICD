@@ -28,6 +28,15 @@ public class TransactionProductEntity {
 
     private Integer quantity;
 
+    private String stripePriceId;
+
+    public String getStripePriceId() {
+        return stripePriceId;
+    }
+
+    public void setStripePriceId(String stripePriceId) {
+        this.stripePriceId = stripePriceId;
+    }
 
     public TransactionProductEntity() {
     }
@@ -41,6 +50,7 @@ public class TransactionProductEntity {
         this.imageUrl = entity.getProduct().getImageUrl();
         this.stock = entity.getProduct().getStock();
         this.quantity = entity.getQuantity();
+        this.stripePriceId = entity.getProduct().getStripePriceId();
     }
 
     public Integer getQuantity() {
