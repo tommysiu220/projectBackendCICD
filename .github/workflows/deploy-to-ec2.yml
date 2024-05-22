@@ -28,9 +28,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build Docker image
-        run: docker build -t project_backend .
+        run: docker build -t project-backend .
       - name: Tag Docker image
-        run: docker tag project_backend ${{ secrets.DOCKERHUB_USERNAME }}/project_backend:${{ github.sha }}
+        run: docker tag project-backend ${{ secrets.DOCKERHUB_USERNAME }}/project_backend:${{ github.sha }}
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/project_backend:${{ github.sha }}
       - name: SSH into EC2 instance
@@ -42,7 +42,7 @@ jobs:
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
             docker login
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/project_backend:${{ github.sha }}
-            docker stop project_backend
-            docker rm project_backend
-            docker run -d --name project_backend -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/project_backend:${{ github.sha }}
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/project-backend:${{ github.sha }}
+            docker stop project-backend
+            docker rm project-backend
+            docker run -d --name project-backend -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/project_backend:${{ github.sha }}
