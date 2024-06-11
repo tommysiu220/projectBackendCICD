@@ -14,6 +14,8 @@ public class ProductResponseData {
     private Integer stock;
     private Boolean hasStock;
     private String stripePriceId;
+    private String imageUrl2;
+    private String imageUrl3;
 
     public ProductResponseData(ProductEntity entity) {
         this.pid = entity.getPid();
@@ -23,7 +25,25 @@ public class ProductResponseData {
         this.description = entity.getDescription();
         this.stock = entity.getStock();
         this.stripePriceId = entity.getStripePriceId();
+        this.imageUrl2 = entity.getImageUrl2();
+        this.imageUrl3 = entity.getImageUrl3();
         hasStock = stock > 0;
+    }
+
+    public String getImageUrl2() {
+        return imageUrl2;
+    }
+
+    public void setImageUrl2(String imageUrl2) {
+        this.imageUrl2 = imageUrl2;
+    }
+
+    public String getImageUrl3() {
+        return imageUrl3;
+    }
+
+    public void setImageUrl3(String imageUrl3) {
+        this.imageUrl3 = imageUrl3;
     }
 
     public String getStripePriceId() {

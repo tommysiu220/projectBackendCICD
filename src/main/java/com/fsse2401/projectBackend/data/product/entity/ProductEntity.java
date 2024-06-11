@@ -16,10 +16,28 @@ public class ProductEntity {
     @Column(nullable=false)
     private BigDecimal price;
     private String imageUrl;
+    private String imageUrl2;
+    private String imageUrl3;
     private String description;
     @Column(nullable = false)
     private Integer stock;
     private String stripePriceId;
+
+    public String getImageUrl2() {
+        return imageUrl2;
+    }
+
+    public void setImageUrl2(String imageUrl2) {
+        this.imageUrl2 = imageUrl2;
+    }
+
+    public String getImageUrl3() {
+        return imageUrl3;
+    }
+
+    public void setImageUrl3(String imageUrl3) {
+        this.imageUrl3 = imageUrl3;
+    }
 
     public String getStripePriceId() {
         return stripePriceId;

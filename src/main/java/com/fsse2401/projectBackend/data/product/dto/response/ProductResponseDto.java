@@ -12,6 +12,10 @@ public class ProductResponseDto {
     private String description;
     @JsonProperty("image_url")
     private String imageUrl;
+    @JsonProperty("image_url2")
+    private String imageUrl2;
+    @JsonProperty("image_url3")
+    private String imageUrl3;
     private BigDecimal price;
     private Integer stock;
     @JsonProperty("stripe_price_id")
@@ -33,6 +37,8 @@ public class ProductResponseDto {
         this.description = data.getDescription();
         this.stock = data.getStock();
         this.stripePriceId = data.getStripePriceId();
+        this.imageUrl2 = data.getImageUrl2();
+        this.imageUrl3 = data.getImageUrl3();
     }
 
     public ProductResponseDto(int pid,String productName,BigDecimal price,String imageUrl,String description,Integer stock, String stripePriceId){
@@ -43,6 +49,22 @@ public class ProductResponseDto {
         this.description = description;
         this.stock = stock;
         this.stripePriceId = stripePriceId;
+    }
+
+    public String getImageUrl2() {
+        return imageUrl2;
+    }
+
+    public void setImageUrl2(String imageUrl2) {
+        this.imageUrl2 = imageUrl2;
+    }
+
+    public String getImageUrl3() {
+        return imageUrl3;
+    }
+
+    public void setImageUrl3(String imageUrl3) {
+        this.imageUrl3 = imageUrl3;
     }
 
     public int getPid() {
