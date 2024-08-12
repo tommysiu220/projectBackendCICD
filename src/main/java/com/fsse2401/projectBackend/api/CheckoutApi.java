@@ -33,7 +33,8 @@ public class CheckoutApi {
         List<TransactionProductResponseDto> transactionProductResponseDtoList =
                 new TransactionResponseDto(transactionService.getTransactionById(JwtUtil.getFirebaseUserData(jwtToken),tid)).getItems();
 
-        String YOUR_DOMAIN = "http://localhost:5173";
+//        String YOUR_DOMAIN = "http://localhost:5173";
+        String YOUR_DOMAIN = "https://shop.doubleshotjersey.online";
 //
 //        SessionCreateParams params =
 //                SessionCreateParams.builder()

@@ -11,6 +11,7 @@ public class FirebaseUserData {
         this.email = (String) jwtToken.getTokenAttributes().get("email");
     }
 
+
     public String getEmail() {
         return email;
     }
