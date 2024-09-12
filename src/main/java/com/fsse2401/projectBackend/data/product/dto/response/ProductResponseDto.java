@@ -12,9 +12,9 @@ public class ProductResponseDto {
     private String description;
     @JsonProperty("image_url")
     private String imageUrl;
-    @JsonProperty("image_url2")
+    @JsonProperty("image_url_2")
     private String imageUrl2;
-    @JsonProperty("image_url3")
+    @JsonProperty("image_url_3")
     private String imageUrl3;
     private BigDecimal price;
     private Integer stock;

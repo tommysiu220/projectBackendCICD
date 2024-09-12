@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.stripe.Stripe;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,41 +31,8 @@ public class CheckoutApi {
         List<TransactionProductResponseDto> transactionProductResponseDtoList =
                 new TransactionResponseDto(transactionService.getTransactionById(JwtUtil.getFirebaseUserData(jwtToken),tid)).getItems();
 
-//        String YOUR_DOMAIN = "http://localhost:5173";
+        // String YOUR_DOMAIN = "http://localhost:5173";
         String YOUR_DOMAIN = "https://shop.doubleshotjersey.online";
-//
-//        SessionCreateParams params =
-//                SessionCreateParams.builder()
-//                        .setMode(SessionCreateParams.Mode.PAYMENT)
-//                        .setSuccessUrl(YOUR_DOMAIN + "/thankyou")
-//                        .setCancelUrl(YOUR_DOMAIN + "/error")
-//
-//                        .addLineItem(
-//                                SessionCreateParams.LineItem.builder()
-//                                        .setQuantity(1L)
-//                                        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-//                                        .setPrice("price_1PBqUURpBm2YYBNuCSeqScCj")
-//                                        .build())
-//                        .addLineItem(
-//                                SessionCreateParams.LineItem.builder()
-//                                        .setQuantity(1L)
-//                                        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-//                                        .setPrice("price_1PCz6cRpBm2YYBNu5WxeYq0H")
-//                                        .build())
-//                        .build();
-//
-//
-////        for (TransactionProductResponseDto product : transactionProductResponseDtoList) {
-////            SessionCreateParams.builder()
-////                    .addLineItem(
-////                            SessionCreateParams.LineItem.builder()
-////                                    .setQuantity((long) product.getQuantity())
-////                                    .setPrice(product.getProduct().getStripePriceId())  // Use the actual Price ID (SKU) from Stripe
-////                                    .build()
-////                    );
-////        }
-//
-//        Session session = Session.create(params);
 
         SessionCreateParams.Builder paramsBuilder = SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
@@ -75,7 +40,7 @@ public class CheckoutApi {
                 .setCancelUrl(YOUR_DOMAIN + "/error");
 
 
-// Add line items for each product in the productList using a loop
+        // Add line items for each product in the productList using a loop
         for (TransactionProductResponseDto product : transactionProductResponseDtoList) {
             paramsBuilder.addLineItem(
                     SessionCreateParams.LineItem.builder()
